@@ -22,7 +22,7 @@ const loginUrl = "/auth/login";
 
 function Login(props) {
   const { setUser } = React.useContext(userContext);
-
+ 
   const validate = state => {
     const errors = {};
     if (state.username.trim() === "") {
@@ -43,7 +43,10 @@ function Login(props) {
       });
       props.history.push("/");
     };
-    await post(success, null, null, loginUrl, changeJsonToFormData(form));
+    setUser({
+      token: "43434tghfng",
+    });
+    //await post(success, null, null, loginUrl, changeJsonToFormData(form));
   };
   const { form, bind, submitting, handleSubmit, errors: error } = useForm(
     login,
